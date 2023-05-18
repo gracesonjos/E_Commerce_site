@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>View Order</title>
+    </head>
+    <style>
+        .s1{
+            background-color: rgb(166, 201, 237);
+            align-items: center;
+            margin-top: 100px;
+            margin-left: 200px;
+        }
+        
+    </style>
+    <body >
+        {% include "deliveryagentmenubar.html" %}
+        <table border="2" class="s1">
+            <tr>
+                <th>Order ID</th>
+                <th>Product ID</th>
+                <th>Coustomer ID</th>
+                <th>Oder Date</th>
+                <th>Order Quandity</th>
+                <th>Delivery Adress</th>
+                <th>Accept Order</th>
+                
+            </tr>
+            {% for i in g %}
+                <tr>
+                    <td>{{i.order_id}}</td>
+                    <td>{{i.product_id_id}}</td>
+                    <td>{{i.coustomer_id_id}}</td>
+                    <td>{{i.order_date}}</td>
+                    <td>{{i.oder_quandity}}</td>
+                    <td>{{i.delivery_adress}}</td>
+                    <td><button type="submit" value="ok" class="btn1" onclick="location.href='/deliveryagentacceptorder/{{i.order_id}}'">Accept Order</button></td> 
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

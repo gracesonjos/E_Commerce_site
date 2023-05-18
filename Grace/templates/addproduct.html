@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Add Category</title>
+        <style>
+            body{
+                background-image: url("../static/img/addproduct.jpg");
+                background-size: cover;
+            }
+            .s1{
+                background-color: rgba(26, 206, 206, 0.623);
+                text-align: center;
+                border-radius: 10%;
+                border-color: rgba(127, 255, 212, 0.733);
+                width: 200;
+                height: 330;
+                margin-left: 500;
+                margin-top: 60;
+               
+                padding: 10;
+            }
+        </style>
+    </head>
+    <body >
+        {% include "shopemeanubar.html" %}
+        <form action="/actionproduct/" method="post" enctype="multipart/form-data" name="f1">
+            {% csrf_token %}
+            <div class="s1">
+                <label>Category ID</label>
+                <select name="category_id" required>
+                    {% for i in g %}
+                    <option value="{{i.category_id}}">{{i.category_name}}</option>
+                    {% endfor %}
+                </select><br>
+               <label>Shope ID</label><br>
+               <input type="text" name="shope_id" value="{{shopid}}" readonly><br>
+               <label>Product Name</label><br>
+               <input type="text" name="product_name" placeholder="Enter the Product Name here" required><br>
+               <label>Price</label><br>
+               <input type="number" name="price" placeholder="Enter the price here" required><br>
+               <label>Discription</label><br>
+               <textarea cols="20" rows="2" name="description" placeholder="Add Discription here" required></textarea><br>
+               <label>Photo</label><br>
+               <input type="file" name="photo" required ><br>
+               <label>Stock</label><br>
+               <input type="number" name="stock" placeholder="Enter stock  here" required><br>
+               <input type="submit"  value="SUBMIT" ><br>
+            </div>
+        </form>
+    </body>
+</html>

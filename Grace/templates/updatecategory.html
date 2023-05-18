@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Update Category</title>
+        <style>
+            body{
+                 background-image: url("../static/img/updatecategory.jpg"); 
+                background-size: cover; 
+            }
+            .s1{
+                background-color: rgba(232, 222, 20, 0.616);
+                text-align: center;
+                border-radius: 10%;
+                border-color: aquamarine;
+                width: 200;
+                height: 250;
+                margin-left: 500;
+                margin-top: 100;
+               
+                padding: 10;
+            }
+            h1{
+                margin-left: 300;
+            } 
+        </style> 
+    </head>
+    <body>
+        {% include "adminmenu.html" %}
+        <form action="/updateactioncategory/{{g.category_id}}" method="post" enctype="multipart/form-data" name="f1">
+            {% csrf_token %}
+            <div class="s1">
+               <label>Category ID</label><br>
+               <input type="text" name="category_id"  value="{{g.category_id}}" readonly><br>
+               <label>Category Name</label><br>
+               <input type="text" name="name" value="{{g.category_name}}" required><br>
+               <label>Photo</label><br>
+               <img src="{{g.photo}}" width="50px" height="50px"><br>
+               <input type="file" name="photo"><br>
+               <label>Discription</label><br>
+               <textarea cols="20" rows="2" name="discription" required >{{g.description}}</textarea><br>
+               <input type="submit"  value="SUBMIT" ><br>
+            </div>
+        </form>
+    </body>
+</html>

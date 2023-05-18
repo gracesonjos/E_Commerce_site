@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <style>
+            .s1{
+            background-color: #f3f3f0;
+            text-align: center;
+            border-radius: 10%;
+            border-color: rgba(47, 46, 46, 0.998);
+            width: 150;
+            height: 200;
+            margin-left: 150;
+            margin-top: 100;
+            float: left;
+            padding: 20px;
+        }
+        img{
+            border-radius: 10%;
+        }
+        </style>
+
+    </head>
+    <body>
+        {% include "coustomermenubar.html" %}
+        {% for i in g %}
+        <div class="s1">
+        
+            <img  src="{{i.photo}}" height="80px" width="80px"><br>
+            <!-- {{i.product_id}}<br> -->
+            {{i.product_name}}<br>
+            {{i.category_id.category_name}}<br>
+            <!-- {{i.category_id.description}}<br> -->
+            {{i.shope_id.shope_name}}<br>
+            Rs {{i.price}}<br>
+            <!-- {{i.description}}<br> -->
+            {{i.stock}}<br>
+            <a href="/productdetails/{{i.product_id}}" >Details</a><br>
+        </div>
+        {% endfor %}
+        
+    </body>
+</html>

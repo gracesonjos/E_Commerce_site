@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Order Form</title>
+        <script>
+            function valid()
+            {
+            var a=parseInt(f1.p.value);
+            var b=parseInt(f1.quandity.value);
+            var t=0
+            t=a*b;
+            f1.total.value=t;
+            }
+        </script>
+        <style>
+            body{
+                background-image: url("../static/img/addproduct.jpg");
+                background-size: cover;
+            }
+            .s1{
+                background-color: rgba(26, 206, 206, 0.623);
+                text-align: center;
+                border-radius: 10%;
+                border-color: rgba(127, 255, 212, 0.733);
+                width: 400px;
+                height: 350px;
+                margin-left: 100px;
+                margin-top: 80px;
+               
+                padding: 10;
+            }
+        </style>
+    </head>
+    <body >
+       {% include "coustomermenubar.html" %}
+        <form action="/order/" method="post" enctype="multipart/form-data" name="f1">
+            {% csrf_token %}
+            <div class="s1">
+                <label><h1>Oder Form</h1></label>
+                <input type="hidden" name="product_id" value="{{g.product_id}}" readonly><br>
+                <label>Product Name</label><br>
+                <input type="text" name="product_name" value="{{g.product_name}}" readonly><br>
+                <input type="hidden" name="p" value="{{g.price}}" readonly><br>
+                <!-- <img src="{{g.photo}}" height="80px" width="90px"><br> -->
+                <label>Order Date</label><br>
+                <input type="text" name="oder_date" value="{{date}}" readonly><br>
+                <label>Quandity</label><br>
+                <input type="number" name="quandity" placeholder="Enter quandity here" onkeyup="valid()" required><br>
+                <label>Total Amount</label><br>
+                <input type="number" name="total" readonly><br>
+                <label>Delivery Adress</label><br>
+                <textarea cols="20" rows="2" name="adress" placeholder="Enter your Adress here" required></textarea><br>
+                <input type="submit"  value="Order Now" ><br>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+    <body>
+        {% include "coustomermenubar.html" %}
+        <br><br>
+        {% for i in g %}
+        <div class="testimonial-item">
+            <img height="100" width="100" src="{{i.product_id.photo}}">
+            <div class="d-flex align-items-center mb-3">
+                <div class="ml-3">
+                    <h4>{{i.coustomer_id.coustomer_name}}</h4>
+                    <i>{{i.review_date}}</i>
+                </div>
+            </div>
+            <p class="m-0">{{i.review}}</p>
+            <a href="/deletecoustomerreview/{{i.review_id}}">Delete</a><br><br>
+        </div>
+        
+        {% endfor %}
+    </body>
+</html>

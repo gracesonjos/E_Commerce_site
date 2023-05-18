@@ -1,0 +1,23 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+       
+        {% include "coustomermenubar.html" %}
+        <center>
+            {{data.product_id}}<br>
+            {{data.product_name}}<br>
+            {{data.price}}<br>
+            {{data.description}}<br>
+            <img src="{{data.photo}}" height="400px" width="400px"><br>
+            {{data.stock}}<br>
+            {{data.category_id.category_name}}<br>
+            {{data.shope_id.shope_name}}<br>
+            <a href="/coustomerviewreview/{{data.product_id}}" >View Review</a><br>
+            <a href="/coustomerpostreview/{{data.product_id}}" >Post Review</a><br>
+            <a href="/orderdetails/{{data.product_id}}" >Order</a><br>
+        </center>
+
+    </body>
+</html>

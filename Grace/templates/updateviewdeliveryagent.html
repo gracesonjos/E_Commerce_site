@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Add Category</title>
+        <style>
+            body{
+                background-image: url("../static/img/updateviewshope.jpg");
+                background-size: cover;
+            }
+            .s1{
+                background-color: rgba(0, 255, 255, 0.635);
+                text-align: center;
+                border-radius: 10%;
+                border-color: aquamarine;
+                width: 180;
+                height: 130;
+                margin-left: 200;
+                margin-top: 100;
+                float: left;
+                padding: 10;
+            }
+            img{
+                border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body >
+        {% include "adminmenu.html" %}
+        {% for i in g %}
+            <div class="s1">
+                {{i.agent_id}}<br>
+                {{i.agent_name}}<br>
+                +91 {{i.phone_number}}<br>
+                {{i.email}}<br><br>
+                <button type="submit" value="ok" class="btn1" onclick="location.href='/updatedeliveryagent/{{i.agent_id}}'">UPDATE</button>
+             
+             </div>   
+                 
+            
+        {% endfor %}
+    </body>
+
+</html>

@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Add Category</title>
+        <style>
+            body{
+                background-image: url("../static/img/updateviewshope.jpg");
+                background-size: cover;
+            }
+            .s1{
+                background-color: rgba(0, 255, 255, 0.635);
+                text-align: center;
+                border-radius: 10%;
+                border-color: aquamarine;
+                width: 230;
+                height: 230;
+                margin-left: 100;
+                margin-top: 100;
+                float: left;
+                padding: 10;
+            }
+            img{
+                border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body >
+        {% include "adminmenu.html" %}
+        {% for i in g %}
+            <div class="s1">
+                <img src="{{i.photo}}" height="80px" width="80px"><br>
+                {{i.shope_id}}<br>
+                {{i.shope_name}}<br>
+                {{i.location}}<br>
+                {{i.pincode}}<br>
+                +91 {{i.phone_number}}<br>
+                {{i.email}}<br>
+                <button type="submit" value="ok" class="btn1" onclick="location.href='/updateshope/{{i.shope_id}}'">UPDATE</button>
+             
+             </div>   
+                 
+            
+        {% endfor %}
+    </body>
+
+</html>

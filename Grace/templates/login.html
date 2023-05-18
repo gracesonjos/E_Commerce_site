@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Add Category</title>
+        <style>
+            body{
+                background-image: url("../static/img/login.jpg");
+                background-size: cover;
+            }
+            .s1{
+                background-color: rgba(0, 255, 255, 0.635);
+                text-align: center;
+                border-radius: 10%;
+                border-color: aquamarine;
+                width: 200;
+                height: 200;
+                margin-left: 500;
+                margin-top: 100;
+               
+                padding: 10;
+            }
+        </style>
+    </head>
+    <body >
+        <!-- {% include "adminmenu.html" %} -->
+        <form action="/loginaction/" method="post" enctype="multipart/form-data" name="f1">
+            {% csrf_token %}
+            <div class="s1">
+               <label>User ID</label><br>
+               <input type="text" name="user_id" placeholder="Enter the Name" required><br>
+               <label>Password</label><br>
+               <input type="password" name="password" placeholder="Enter the password" required><br><br>
+               <a href="/forgetpassword/">Forget Password </a><br><br>
+               <a href="/coustomerregistration/">Registre </a><br><br>
+               <input type="submit"  value="SUBMIT" ><br>
+               <input type="hidden" value="{{s1}}" id="n1">
+               <label style="color:red;display:none" id="n2">invalid username and password</label>
+               <script>
+              
+                if(document.getElementById("n1").value==1)
+                {
+                    document.getElementById("n2").style.display="block";
+                }
+               </script>
+            </div>
+        </form>
+    </body>
+</html>

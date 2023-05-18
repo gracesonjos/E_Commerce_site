@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Add Category</title>
+        <style>
+            body{
+                background-image: url("../static/img/addcategory.jpg");
+                background-size: cover;
+            }
+            .s1{
+                background-color: rgba(0, 255, 255, 0.635);
+                text-align: center;
+                border-radius: 10%;
+                border-color: aquamarine;
+                width: 200;
+                height: 150;
+                margin-left: 400;
+                margin-top: 100;
+               
+                padding: 10;
+            }
+        </style>
+    </head>
+    <body >
+        {% include "adminmenu.html" %}
+        <form action="/actioncategory/" method="post" enctype="multipart/form-data" name="f1">
+            {% csrf_token %}
+            <div class="s1">
+               <label>Category Name</label><br>
+               <input type="text" name="name" placeholder="Enter the Category Name here" required><br>
+               <label>Photo</label><br>
+               <input type="file" name="photo" required><br>
+               <label>Discription</label><br>
+               <textarea cols="20" rows="2" name="description" placeholder="Add Discription here" required></textarea><br>
+               <input type="submit"  value="SUBMIT" ><br>
+            </div>
+        </form>
+    </body>
+</html>

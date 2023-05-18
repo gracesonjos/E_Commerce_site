@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>admission</title>
+        <style>
+            body{
+                background-image: url("../static/img/removeshope.jpg");
+                background-size: cover;
+            }
+            .s1{
+                background-color: rgba(20, 218, 232, 0.402);
+                text-align: center;
+                border-radius: 10%;
+                border-color: aquamarine;
+                width: 200;
+                height: 200;
+                margin-left: 100;
+                margin-top: 60;
+               
+                padding: 10;
+            }
+            h1{
+                margin-left: 300;
+            }
+        </style>
+        <script type="text/javascript">
+            function valid()
+			{		
+            var mail = new RegExp("^[a-z]+(\.[a-z0-9_\+-]+)@[a-z0-9-]+(\.[a-z0-9-]+)\.([a-z]{2,4})$");
+            if(f1.phone_number.value.length!=10)
+                {
+                alert("phone number should be atleast 10...");
+                    f1.phone_number.focus();
+                return false;
+                }
+                if (!mail.test(f1.email.value))
+                {
+                alert("Enter a valid ID.For example:'name@gmail.com'..");
+                return false;
+                }
+            return true;
+            }
+        </script>
+    </head>
+    <body >
+        {% include "adminmenu.html" %}
+        <h1>UPDATE DELIVERY AGENT</h1>
+        <form action="/updateactiondeliveryagent/{{g.agent_id}}" method="post" name="f1">
+            {% csrf_token %}
+            <div class="s1">
+               <label>Agent ID</label><br>
+               <input type="text" name="agent_id" value="{{g.agent_id}}" readonly ><br>
+               <label>Shope Name</label><br>
+               <input type="text" name="agent_name" value="{{g.agent_name}}" required><br>
+               <label>Phone umber</label><br>
+               <input type="number" name="phone_number" value="{{g.phone_number}}" required><br>
+               <label>email</label><br>
+               <input type="email" name="email" value="{{g.email}}" required><br><br>
+               <input type="submit"  value="SUBMIT" onclick="return valid()"><br>
+            </div>
+        </form>
+    </body>
+</html>

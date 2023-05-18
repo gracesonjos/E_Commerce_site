@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>Add Category</title>
+        <style>
+            body{
+                background-image: url("../static/img/addshope.jpg");
+                background-size: cover;
+            }
+            .s1{
+                background-color: rgba(0, 255, 255, 0.635);
+                text-align: center;
+                border-radius: 10%;
+                border-color: rgba(127, 255, 212, 0.733);
+                width: 200;
+                max-height: 500;
+                margin-left: 100;
+                margin-top: 60;
+               
+                padding: 10;
+            }
+        </style>
+      
+        <script type="text/javascript">
+            function valid()
+			{		
+            var mail = new RegExp("^[a-z]+(\.[a-z0-9_\+-]+)@[a-z0-9-]+(\.[a-z0-9-]+)\.([a-z]{2,4})$");
+            if(f1.phone_number.value.length!=10)
+                {
+                alert("phone number should be atleast 10...");
+                    f1.phone_number.focus();
+                return false;
+                }
+                if (!mail.test(f1.email.value))
+                {
+                alert("Enter a valid ID.For example:'name@gmail.com'..");
+                return false;
+                }
+            
+                var c = /[a-z]/.test(f1.user_id.value)
+              
+                if(c==false)
+                {
+                    alert("user id must contain atlest 1 lowercase letter..")
+                    return false;
+                }
+                var c = /[A-Z]/.test(f1.user_id.value)
+                if(c==false)
+                {
+                    alert("user id must contain atlest 1 uppercase letter..")
+                    return false;
+                }
+                var c = /[0-9]/.test(f1.user_id.value)
+                if(c==false)
+                {
+                    alert("user id must contain atlest 1 number..")
+                    return false;
+                }
+                
+                var c = /[a-z]/.test(f1.password.value)
+              
+                if(c==false)
+                {
+                    alert("password must contain atlest 1 lowercase letter..")
+                    return false;
+                }
+                var c = /[A-Z]/.test(f1.password.value)
+                if(c==false)
+                {
+                    alert("password must contain atlest 1 uppercase letter..")
+                    return false;
+                }
+                var c = /[0-9]/.test(f1.password.value)
+                if(c==false)
+                {
+                    alert("password must contain atlest 1 number..")
+                    return false;
+                }
+            return true;
+            }
+        </script>
+    
+    </head>
+    <body >
+        {% include "adminmenu.html" %}
+        <form action="/actionaddagent/" method="post" enctype="multipart/form-data" name="f1">
+            {% csrf_token %}
+            <div class="s1">
+               <label>Name</label><br>
+               <input type="text" name="agent_name" placeholder="Enter Agent Name here" required><br>
+               <label>phone_number</label><br>
+               <input type="number" name="phone_number" placeholder="Enter your phone number  here" required><br>
+               <label>email</label><br>
+               <input type="email" name="email" placeholder="Enter Your Email here" required><br>
+               <label>User ID</label><br>
+               <input type="text" name="user_id" placeholder="Enter your User id" required><br>
+               <label>Password</label><br>
+               <input type="password" name="password" placeholder="Enter your password" required><br>
+               Password must contain:<br>
+               * at least 1 uppercase<br>
+               * at least 1 number<br>
+               * @ between alphbets and digits<br>
+               <input type="submit"  value="SUBMIT"  onclick="return valid()"><br>
+            </div>
+        </form>
+    </body>
+</html>

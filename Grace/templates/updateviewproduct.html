@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Add Category</title>
+        <style>
+            body{
+                background-image: url("../static/img/updateviewproduct.jpg");
+                background-size: cover;
+            }
+            .s1{
+                background-color: rgba(190, 134, 221, 0.635);
+                text-align: center;
+                border-radius: 10%;
+                border-color: aquamarine;
+                width: 250;
+                height: 300;
+                margin-left: 150;
+                margin-top: 100;
+                float: left;
+                padding: 20px;
+            }
+            img{
+                border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body >
+        {% include "shopemeanubar.html" %}
+        {% for i in g %}
+            <div class="s1">
+                
+                    <img src="{{i.photo}}" height="80px" width="80px"><br>
+                    {{i.product_id}}<br>
+                    {{i.product_name}}<br>
+                    {{i.category_id.category_name}}<br>
+                    {{i.category_id.description}}<br>
+                    {{i.shope_id.shope_name}}<br>
+                    Rs {{i.price}}<br>
+                    {{i.description}}<br>
+                    {{i.stock}}<br>
+                    <button type="submit" value="ok" class="btn1" onclick="location.href='/updateproduct/{{i.product_id}}'">UPDATE</button>
+            
+            </div>
+        {% endfor %}
+    </body>
+</html>

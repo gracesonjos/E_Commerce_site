@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <style>
+            body{
+                /* background-image: url("../static/img/deleteproduct.jpg");
+                background-size: cover; */
+            }
+            .s1{
+                background-color: rgba(0, 255, 255, 0.635);
+                text-align: center;
+                border-radius: 10%;
+                border-color: aquamarine;
+                width: 200;
+                max-height: 400;
+                margin-left: 50;
+                margin-top: 100;
+                overflow: visible;
+                float: left;
+                padding: 20px;
+            }
+            img{
+                border-radius: 10%;
+            }
+        </style>
+
+    </head>
+    <body>
+        {% include "shopemeanubar.html" %}
+        {% for i in g %}
+                
+        <div class="s1">
+
+            <img src="{{i.photo}}" height="80px" width="80px"><br>
+            {{i.product_id}}<br>
+            {{i.category_id.category_name}}<br>
+            {{i.product_name}}<br>
+            Rs {{i.price}}<br>
+            {{i.description}}<br>
+            {{i.shope_id.shope_name}}<br>
+            <a href="/shopeviewreview/{{i.product_id}}" >View Review</a><br>
+            
+        </div>
+            
+        {% endfor %}
+    </body>
+</html>

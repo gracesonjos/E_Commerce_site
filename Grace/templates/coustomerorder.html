@@ -1,0 +1,56 @@
+{% load static %}
+<html>
+    <head>
+        <style>
+            body{
+                /* background-image: url("../static/img/deleteproduct.jpg");
+                background-size: cover; */
+            }
+            .s1{
+                background-color: rgba(179, 240, 202, 0.635);
+                text-align: center;
+                border-radius: 10%;
+                border-color: aquamarine;
+                width: 200;
+                height: 200;
+                margin-left: 50;
+                margin-top: 100;
+                float: left;
+                padding: 20px;
+            }
+            img{
+                border-radius: 10%;
+            }
+            
+        </style>
+
+    </head>
+    <body>
+        {% include "coustomermenubar.html" %}
+        
+        <div class="s1">
+            <a href="/coustomerviewpendingorder/">Pending</a><br><br>
+            <img width="150" height="150" src="{% static 'img/pending.jpg' %}" alt="Image">
+        </div>
+        <div class="s1">
+            <a href="/coustomerviewacceptedorders/">Accepted</a><br><br>
+            <img width="150" height="150" src="{% static 'img/accepted.jpg' %}" alt="Image">
+        </div>
+        <div class="s1">
+            <a href="/coustomerrejectvieworder/">Rejected</a><br><br>
+            <img width="150" height="150" src="{% static 'img/rejected.jpg' %}" alt="Image">
+        </div>
+        <div class="s1">
+            <a href="/coustomerviewonthewayorder/">On The Way</a><br><br>
+            <img width="150" height="150" src="{% static 'img/ontheway.jpg' %}" alt="Image">
+        </div>
+        <div class="s1">
+            <a href="/coustomerdelivredvieworder/">Delivred</a><br><br>
+            <img width="150" height="150" src="{% static 'img/delivered.jpg' %}" alt="Image">
+        </div>
+        
+        
+        
+        
+    </body>
+</html>

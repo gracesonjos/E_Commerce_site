@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Add Category</title>
+
+        <style>
+            body{
+                background-image: url("../static/img/deleteshope.jpg");
+                background-size: cover;
+            }
+            .s1{
+                background-color: rgba(0, 255, 255, 0.635);
+                text-align: center;
+                border-radius: 10%;
+                border-color: aquamarine;
+                width: 200;
+                height: 200;
+                margin-left: 100;
+                margin-top: 100;
+                float: left;
+                padding: 20px;
+                
+            }
+            img{
+                border-radius: 20%;
+            }
+        </style>
+    </head>
+    <body >
+        {% include "adminmenu.html" %}
+        {% for i in g %}
+        
+            <div class="s1">
+                
+                <img src="{{i.photo}}" height="100px" width="100px"><br>
+                {{i.shope_id}}<br>
+                {{i.shope_name}}<br>
+                {{i.location}}<br>
+                +91 {{i.phone_number}}<br>
+                {{i.email}}<br>
+                <button type="submit" value="ok" class="btn1" onclick="location.href='/deleteactionshope/{{i.shope_id}}'">DELETE</button>
+                
+            </div>
+            
+        {% endfor %}
+    </body>
+</html>

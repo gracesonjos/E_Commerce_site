@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <style>
+            .s1{
+                background-color: rgb(166, 201, 237);
+                align-items: center;
+                height: 260px;
+                width: 180px;
+                margin-top: 100px;
+                margin-left: 200px;
+                padding: 20px;
+                border-radius: 10%;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="/actionreview/" method="post" enctype="multipart/form-data" name="f1">
+            {% csrf_token %}
+            <div class="s1"> 
+                <input type="hidden" name="coustomer_id" value="{{f.coustomer_id}}">
+                <label>Coustomer Name</label><br>
+                <input type="text"  value="{{f.coustomer_name}}" readonly><br>
+                <label>Product Name</label><br>
+                <input type="text" name="product_id" value="{{g.product_id}}">
+                <input type="text"  value="{{g.product_name}}" readonly><br>
+                <label>Date</label><br>
+                <input type="text"  name="review_date"  value="{{date}}" readonly><br>
+                <label>Review</label><br>
+                <textarea cols="20" rows="2" name="review" placeholder="Enter your review" required></textarea><br>
+                <input type="submit"  value="Submit" ><br>
+            </div>
+        </form>
+    </body>
+</html>

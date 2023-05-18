@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>update product</title>
+        <style>
+            body{
+                background-image: url("../static/img/removeshope.jpg");
+                background-size: cover;
+            }
+            .s1{
+                background-color: rgba(20, 218, 232, 0.402);
+                text-align: center;
+                border-radius: 10%;
+                border-color: aquamarine;
+                width: 200;
+                height: 430;
+                margin-left: 100;
+                margin-top: 10;
+               
+                padding: 10;
+            }
+            h1{
+                margin-left: 300;
+            }
+        </style>
+    </head>
+    <body >
+        {% include "shopemeanubar.html" %}
+        <h1>UPDATE SHOPE</h1>
+        <form action="/updateactionproduct/{{g.product_id}}" method="post" enctype="multipart/form-data" name="f1">
+            {% csrf_token %}
+            <div class="s1">
+                <label>Product ID</label><br>
+                <input type="text" name="product_id" value="{{g.product_id}}" readonly ><br>
+                <label>Category Name</label>
+                <input type="text" value="{{g.category_id.category_name}}" readonly><br>
+                <select name="category_id">
+                  {% for i in data1 %}
+                  <option value="{{i.category_id}}">{{i.category_name}}</option>
+                  {% endfor %}
+                </select><br>
+                <label>Shope Name</label><br>
+                <input type="text"  value="{{g.shope_id.shope_name}}" readonly><br>
+                <input type="hidden"  value="{{g.shope_id_id}}" name="shop_id">
+                <label>Product Name</label><br>
+                <input type="text" name="product_name" value="{{g.product_name}}" required ><br>
+                <label>Price</label><br>
+                <input type="number" name="price" value="{{g.price}}" required><br>
+                <label>Discription</label><br>
+                <textarea cols="20" rows="2" name="description" required >{{g.description}}</textarea><br>              
+                <label>Photo</label><br>
+                <img src="{{g.photo}}" height="50px" width="50px">
+                <input type="file" name="photo" ><br>
+                <label>Stock</label><br>
+                <input type="number" name="stock" value="{{g.stock}}" ><br>
+                <input type="submit"  value="SUBMIT" ><br>
+            </div>
+        </form>
+    </body>
+</html>
